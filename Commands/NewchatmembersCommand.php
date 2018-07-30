@@ -1,13 +1,19 @@
 <?php
 
-namespace JoinSpamBot\Commands;
+namespace Longman\TelegramBot\Commands\SystemCommands;
 
+use Longman\TelegramBot\Commands\SystemCommand;
 use Longman\TelegramBot\Entities\User;
 use Longman\TelegramBot\Request;
-use Longman\TelegramBot\Commands\SystemCommands\NewchatmembersCommand as BaseCommand;
 
-class NewChatMembersCommand extends BaseCommand
+class NewchatmembersCommand extends SystemCommand
 {
+    protected $name = 'newchatmembers';
+
+    protected $description = 'New Chat Members';
+
+    protected $version = '1.2.0';
+
     /**
      * Command execute method
      *
