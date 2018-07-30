@@ -1,0 +1,15 @@
+{
+    "name": "svbackend/join-spam-bot",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valentin Saik",
+            "email": "svbackend22@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "mmasiukevich/telegram-bot-core": "0.0.*@dev"
+    }
+}
