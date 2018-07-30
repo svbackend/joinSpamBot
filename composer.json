@@ -1,0 +1,9 @@
+{
+    "require": {
+        "longman/telegram-bot": "^0.54.0",
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "autoload": {
+        "files": ["init.php"]
+    }
+}
