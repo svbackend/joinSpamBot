@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -13,14 +13,12 @@ use Desperado\TelegramBot\Infrastructure\HttpServer;
 use function Desperado\TelegramBot\Infrastructure\getEnvironmentValue;
 use Desperado\TelegramBot\Domain;
 
-try
-{
+try {
     $bootstrap = new Builder\Bootstrap(__DIR__ . '/.env');
     $telegramBot = Domain\Bot\TelegramBot::createFromEnvironment();
-    $apiClient   = (new Builder\ApiClientBuilder($bootstrap))->build($telegramBot);
+    $apiClient = (new Builder\ApiClientBuilder($bootstrap))->build($telegramBot);
 
-    $listener = static function(ReceivedMessageEvent $event) use ($apiClient): Promise
-    {
+    $listener = static function (ReceivedMessageEvent $event) use ($apiClient): Promise {
         /** @var \Desperado\TelegramBot\Domain\Types\Message\Message $receivedMessage */
         $receivedMessage = $event->getEventPayload();
         return $apiClient->do(
@@ -45,8 +43,6 @@ try
             getEnvironmentValue('LOG_API_INTERACTIONS', 'bool')
         )
     );
-}
-catch(\Throwable $throwable)
-{
+} catch (\Throwable $throwable) {
     echo Domain\formatThrowable($throwable) . \PHP_EOL;
 }
